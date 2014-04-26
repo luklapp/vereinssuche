@@ -9,22 +9,6 @@
 
 			<span class="glyphicon glyphicon-copyright-mark"></span> Multimediaprojekt 1 von Lukas Klappert &copy; 2014
 
-			<?php
-
-			if(DEBUG)
-			{
-				echo '<br><br><pre>DEBUG:<br><br>';
-				echo $module.".php";
-				echo '<br>';
-				foreach($_GET as $key => $value)
-				{
-					echo '$_GET[\''.$key."'] : ".$value."<br>";
-				}
-				echo '</pre>';
-			}
-
-			?>
-
 		</div>
 
 	</footer>
