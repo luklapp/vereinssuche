@@ -1,0 +1,280 @@
+@import url(http://fonts.googleapis.com/css?family=Signika:300,600);
+
+.gradient (@startColor: #eee, @endColor: white) {
+  background-color: @startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+  background: -webkit-linear-gradient(top, @startColor, @endColor);
+  background: -moz-linear-gradient(top, @startColor, @endColor);
+  background: -ms-linear-gradient(top, @startColor, @endColor);
+  background: -o-linear-gradient(top, @startColor, @endColor);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=@startColor, endColorstr=@endColor,GradientType=0 ); /* IE6-9 */
+}
+
+.transition(@string: all 0.2s ease-in-out)
+{
+  -webkit-transition: @string;
+  -ms-transition: @string;
+  -o-transition: @string;
+  transition: @string;
+}
+
+.box-shadow(@string)
+{
+  box-shadow:@string;
+  -moz-box-shadow:@string;
+  -webkit-box-shadow:@string;
+}
+
+a {
+	.transition();
+}
+
+label, thead {
+	font-family:'Signika', sans-serif;
+	font-weight:600;
+}
+
+body {
+	background:#f8f8f8;
+}
+
+h1,h2 {
+	font-weight:600;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Signika', sans-serif;
+	letter-spacing:-0.5px;
+}
+
+#content {
+	background:#ffffff;
+	.box-shadow(0px 0px 15px #333333);
+	margin-top:-60px;
+	z-index:100;
+	position:relative;
+	padding:20px;
+}
+
+#map {
+	width:100%;
+	height:400px;
+	.box-shadow(0px 5px 15px #cccccc);
+	background:url(../../includes/generateBackground.php) center top;
+}
+
+#mapWrapper {
+	position:relative;
+}
+
+#mapOverlay {
+	height:100%; 
+	width:100%; 
+	position: absolute; 
+	top:0; 
+	left:0; 
+	z-index: 99;
+	text-align:center;
+
+   .gradient( rgba(48,103,145,0.85), rgba(30,79,125,0.85) );
+
+}
+
+.button {
+	font-family: 'Signika', sans-serif;
+
+	padding:15px;
+	margin:auto;
+	margin-top:150px;
+	width:250px;
+	border-radius:3px;
+	.box-shadow(0px 0px 5px #222222);
+    .gradient( rgba(239,159,15,1), rgba(225,116,8,1));
+	.transition();
+
+}
+
+.button:hover {
+  .box-shadow(0px 0px 6px #222222);
+  .gradient( rgba(240,164,16,1), rgba(227,122,8,1));
+
+}
+
+#content .button {
+	.box-shadow(0px 0px 4px #aaaaaa);
+}
+
+#content .button:hover {
+	.box-shadow(0px 0px 3px #222222);
+}
+
+a.button , a.button:visited, a.button:active, a.button:hover {
+	font-weight:300;
+	font-size:16px;
+	color:#ffffff;
+	text-shadow:0px 0px 4px #111111;
+	text-decoration:none;
+	cursor:pointer;
+}
+
+.button {
+  a, a:visited, a:active, a:hover {
+    font-weight:300;
+    font-size:20px;
+    color:#ffffff;
+    text-shadow:0px 0px 6px #111111;
+    text-decoration:none;
+    cursor:pointer;
+  }
+}
+
+#content .button {
+	float:right;
+	margin-top:0;
+}
+
+#footer {
+	text-align:center;
+	margin-top:30px;
+    padding-bottom:20px;
+	color:#999999;
+}
+
+.avatar {
+	margin-top:100px;
+	width:130px;
+	height:130px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border:3px solid #ffffff;
+    .box-shadow(0px 0px 5px #111111);
+    .transition();
+}
+
+.avatar:hover {
+    .box-shadow(0px 0px 10px #000000);
+}
+
+.avatar.small {
+	width:60px;
+	height:60px;
+}
+
+.userInfobox {
+	width:20%;
+	padding:5px;
+	margin:10px;
+	float:left;
+}
+
+.userInfobox p {
+	padding-top:10px;
+}
+
+.userInfobox span, span.date {
+	font-size:11px;
+}
+
+.userInfobox span.bis {
+	color:#999999;
+}
+
+.userInfobox img {
+	margin-top:0;
+	float:left;
+	margin-right:15px;
+}
+
+.tab-pane {
+	padding-top:10px;
+}
+
+#mapVerein {
+	width:100%;
+	height:300px;
+}
+
+#content p {
+	padding-top:10px;
+}
+
+.alert {
+	font-family:'Signika',sans-serif;
+
+    a {
+        color:inherit;
+        font-family:'Signika',sans-serif;
+        font-weight:600;
+    }
+
+}
+
+table {
+	width:100%;
+}
+
+table td {
+	padding:5px;
+	border-bottom:1px solid #dddddd;
+}
+
+thead td {
+	border-bottom:2px solid #dddddd;
+}
+
+.center {
+	width:100%;
+	text-align:center;
+}
+
+@media (max-width: 768px) {
+
+	#content .button {
+		width:100%;
+		display:block;
+		margin-bottom:20px;
+	}
+
+}
+
+/* IMG Area Select */
+
+/*
+ * imgAreaSelect default style
+ */
+
+.imgareaselect-border1 {
+	background: url(../images/border-v.gif) repeat-y left top;
+}
+
+.imgareaselect-border2 {
+    background: url(../images/border-h.gif) repeat-x left top;
+}
+
+.imgareaselect-border3 {
+    background: url(../images/border-v.gif) repeat-y right top;
+}
+
+.imgareaselect-border4 {
+    background: url(../images/border-h.gif) repeat-x left bottom;
+}
+
+.imgareaselect-border1, .imgareaselect-border2,
+.imgareaselect-border3, .imgareaselect-border4 {
+    filter: alpha(opacity=50);
+	opacity: 0.5;
+}
+
+.imgareaselect-handle {
+    background-color: #fff;
+    border: solid 1px #000;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
+
+.imgareaselect-outer {
+    background-color: #000;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+}
