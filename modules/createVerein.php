@@ -13,15 +13,7 @@ if(isset($_POST['submit']))
 {
 	if($_POST['x'] != $_POST['test']){ header("Location: ?fehler=1"); exit; }
 
-	$config->set('HTML.Allowed','');
-	$params = array();
-
-	foreach($_POST as $key => $value)
-	{
-		$params[$key] = $purifier->purify($value);
-	}
-
-	$id = $verein->createVerein($params); 	
+	$id = $verein->createVerein($_POST); 	
 
 	if($id < 1) header("Location: ?fehler=".$id*-1);
 	else header("Location: ../Verein/".$id);

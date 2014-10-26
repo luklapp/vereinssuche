@@ -36,10 +36,6 @@ class VereinPage
 
 		$latlng = $latlng['results'][0]['geometry']['location'];
 
-		$config = HTMLPurifier_Config::createDefault();
-		$purifier = new HTMLPurifier($config);		
-		$config->set('HTML.Allowed','');
-
 		foreach($verein as $key => $value)
 		{
 			$verein[$key] = $purifier->purify($value);
