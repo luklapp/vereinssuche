@@ -28,29 +28,29 @@ class ProfilPage
      * @param $birthday
      * @return bool
      */
-    public function editUser($vorname,$nachname,$mail,$passwort,$isVisible,$birthday)
+    public function editUser($data)
 	{
 		$db = Database::getDB();
 
-		$password = hash('sha256',$passwort.$mail);
+		$password = hash('sha256',$data["passwort"].$mail);
 
 		$params = array(
-			":vorname" => $vorname,
-			":nachname" => $nachname,
-			":isVisible" => $isVisible,
-			":id" => $_COOKIE['userID'],
-			":birthday" => $birthday
+			":vorname" => $data["vorname"],
+			":nachname" => $data["nachname",
+			":isVisible" => $data["isVisible"],
+			":id" => $data["id"],
+			":birthday" => $data["birthday"]
 		);
 
 		$sth = $db->prepare("UPDATE ".DB_PREFIX."_user SET vorname = :vorname, nachname = :nachname, is_visible = :isVisible, geburtsdatum = :birthday WHERE id = :id");
 
 		$sth->execute($params);
 
-		if($passwort != "")
+		if($data["passwort"] != "")
 		{
 			$params = array(
 				":password" => $password,
-				":id" => $_COOKIE['userID']
+				":id" => $data["id"]
 			);
 
 			$sth = $db->prepare("UPDATE ".DB_PREFIX."_user SET password = :password WHERE id = :id");

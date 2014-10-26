@@ -11,17 +11,11 @@ $profileEditPage = new ProfilPage($_COOKIE['userID']);
 
 if(isset($_POST['submit']))
 {
-  
-  $config->set('HTML.Allowed',''); 
-  foreach($_POST as $key => $value)
-  {
-    $_POST[$key] = $purifier->purify($value);
-  }
 
    if(isset($_POST['vorname']) && isset($_POST['nachname']) && isset($_POST['isVisible']))
    {
 
-      $user = $session->getUserData();
+      $params = $_POST;
 
       if($_POST['gb_jahr'] != 0 && ctype_digit($_POST['gb_tag']) && ctype_digit($_POST['gb_monat']) && ctype_digit($_POST['gb_jahr']))
       {
@@ -31,7 +25,14 @@ if(isset($_POST['submit']))
       else
         $birthday = 0;
 
-      $editUser = $profileEditPage->editUser($_POST['vorname'],$_POST['nachname'],$user->email,$_POST['passwort'],$_POST['isVisible'],$birthday);
+      $user = $session->getUserData();
+
+      $params["birthday"] = $birthday;
+      $params["email"] = $user->email;
+      $params["id"] = $user->id;
+
+      $editUser = $profileEditPage->editUser($params);
+      
       
       header("Location: ../User/".$user->id);
 
@@ -59,7 +60,7 @@ include("includes/header.php");
 
   <?php $user = $session->getUserData(); ?>
 
-  <a class="button" href="./User/editAvatar">Avatar bearbeiten</a>
+  <a class="button" href="User/editAvatar">Avatar bearbeiten</a>
 
 	<h1>Profil bearbeiten</h1>
 
